@@ -1,0 +1,27 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography';
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/globals'; 
+.nextvideo{
+   padding-top:24px;
+   padding-bottom:16px;
+   padding-right:16px;
+   padding-left: 16px;
+
+   &__title{
+    @include font-style('Avenir',12px,700,20px,$silver);
+    text-transform: uppercase;
+    padding-bottom: 16px;
+   }
+   &__cards{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    
+   }
+   &__thumbnail{
+    width:10rem;
+    height:4rem;
+    border-radius: 4px;
+}
+}
