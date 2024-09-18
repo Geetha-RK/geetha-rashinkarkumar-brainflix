@@ -14,7 +14,7 @@ export default function Nextvideolist({ videoDetails }){
                             <div className="nextvideo__copy-author">{video.channel}</div>
                         </div>
                     </div>
-                ))};
+                ))}
         </section>
     );
 };
