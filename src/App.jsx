@@ -1,12 +1,14 @@
+import './App.scss';
 import Nextvideolist from './components/Nextvideolist/Nextvideolist';
-import './App.css';
+import videoDetails from './data/video-details.json';
+
 
 function App() {
   
 
   return (
     <>
-      <Nextvideolist />
+      <Nextvideolist videoDetails={videoDetails}/>
       
        
     </>
