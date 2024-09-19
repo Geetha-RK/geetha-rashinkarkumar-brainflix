@@ -2,3 +2,8 @@
 @use './styles/partials/typography';
 @use './styles/partials/variables' as *;
 @use './styles/partials/globals'; 
+
+body{
+    font-family: 'Avenir';
+    
+}

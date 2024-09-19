@@ -1,0 +1,43 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+.video{ 
+    background-color: $brainflix-black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16/9;
+
+    &_img{
+        width:100%;
+        object-fit: contain;
+        height:auto;
+    }
+
+    &__title{
+        @include font-style('Avenir',24px,700,32px,$brainflix-black);
+        padding:16px;
+    }
+}
+// // Scrubbing controls and icon design
+// video::-webkit-media-controls-play-button {
+//     color: $white;
+//      // White fill for video play button
+// }
+
+// video::-webkit-media-controls-scrubber {
+//     background-color: $brainflix-black; // BrainFlix-DarkBlack scrubber background
+// }
+
+// video::-webkit-media-controls-timeline {
+//     background-color: $silver; // Silver buffer color
+// }
+
+// video::-webkit-media-controls-current-time-display,
+// video::-webkit-media-controls-time-remaining-display {
+//     color: $white; // White color for the time display
+// }
+
+// video::-webkit-media-controls-timeline-container {
+//     background-color: $brainflix-blue; // BrainFlix-Blue for the played part of the scrubber
+// }
