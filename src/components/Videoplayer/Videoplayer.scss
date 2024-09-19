@@ -18,7 +18,65 @@
         @include font-style('Avenir',24px,700,32px,$brainflix-black);
         padding:16px;
     }
-}
+
+    &__border{
+        color:$mercury;
+        height:1px;
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    &__containers{
+        display:flex;
+        flex-direction: row;
+        padding:1rem;
+    }
+    &__container1{
+        padding-right: 1rem;
+        justify-content: space-between;
+    }
+    &__container2{
+        display: flex;
+        padding-bottom: 1rem;
+    }
+    &__container3{
+        display: flex;
+    }
+    &__author{
+        padding-bottom: 1rem;
+        @include font-style('Avenir',16px,700,20px,$brainflix-black);
+    }
+    &__views-icon{
+        padding-right: 0.5rem;
+    }
+    &__likes-icon{
+        padding-right: 0.5rem;
+    }
+    &__views{
+        @include font-style('Avenir',16px,400,20px,$silver);
+    }
+    &__likes{
+        @include font-style('Avenir',16px,400,20px,$silver);
+    }
+    &__date{
+        @include font-style('Avenir',16px,400,20px,$silver);
+    }  
+} 
+    .description{
+        padding: 1rem;
+
+        &__copy{
+            @include font-style('Avenir',14px,400,18px,$brainflix-black);
+        }
+
+        &__comments{
+            padding-top: 1rem;
+            @include font-style('Avenir',16px,700,20px,$brainflix-black);
+        }
+    }
+
+    
+
 // // Scrubbing controls and icon design
 // video::-webkit-media-controls-play-button {
 //     color: $white;
