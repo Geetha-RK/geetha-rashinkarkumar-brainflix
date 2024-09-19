@@ -1,0 +1,20 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.avatar{
+    border-radius: 50%;
+    background-color: $mercury;
+    width:36px;
+    height:36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &__img{
+        height:100%;
+        width:100%;
+        border-radius: 50%;
+        object-fit: cover;
+       }
+}
+

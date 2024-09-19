@@ -1,7 +1,7 @@
 import './Videoplayer.scss';
 
 export default function Videoplayer({ videoDetails }){
-    console.log(videoDetails);
+    
     function formatDateToMMDDYYYY(input) {       
         const date = (input instanceof Date) ? input : new Date(input);
     
@@ -15,14 +15,14 @@ export default function Videoplayer({ videoDetails }){
         
         return `${month}/${day}/${year}`;
     }
-
+   
     return(
         <>
         <div className='video'>
             <video className='video_img' controls poster={videoDetails.image}></video>
         </div>
         <div className='video__title'>{videoDetails.title}</div>
-        <hr class="video__border"/>
+        <hr className="video__border"/>
         <section className="video__containers">
             <div className="video__container1">
                 <div className="video__author">By {videoDetails.channel}</div>
@@ -39,7 +39,7 @@ export default function Videoplayer({ videoDetails }){
                 </div>
             </div>
         </section>
-        <hr class="video__border"/>
+        <hr className="video__border"/>
         <article className='description'>
             <p className='description__copy'>
                 {videoDetails.description}

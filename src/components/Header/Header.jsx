@@ -1,3 +1,5 @@
+import Avatar from '../Avatar/Avatar';
+import Button from '../Button/Button';
 import './Header.scss';
 
 export default function Header(){
@@ -11,15 +13,8 @@ export default function Header(){
                 <img className="header__searchicon" src="src\assets\icons\search.svg" alt="search-icon" />
                 <input type="text" name="search-box" className="header__searchtext" placeholder="Search"/>
             </div>
-            <div className="header__avatar">
-                <img className="header__avatar-img" src="src\assets\images\Mohan-muruge.jpg" alt="mohan-img" />
-            </div>
-            <div className="header__upload">
-                <button className='header__uploadbutton'>
-                    <img className="header__uploadimg" src="src\assets\icons\upload.svg" alt="upload-icon" />
-                    UPLOAD
-                </button>
-            </div> 
+            <Avatar prop="src\assets\images\Mohan-muruge.jpg"/>
+            <Button prop="UPLOAD" url="src\assets\icons\upload.svg"/>
         </div>
     </div>
     );
