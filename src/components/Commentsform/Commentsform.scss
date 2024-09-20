@@ -1,2 +1,102 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
+
+.form{
+    display:flex;
+    flex-direction: row;
+    padding: 1rem;
+    min-height: 36px;
+
+    &__container1{
+        width:20%;
+        padding-top: 1rem;
+    }
+    &__container2{
+        display: flex;
+        flex-direction: column;
+        padding-left: 1rem;
+    }
+    &__commentLable{
+        margin-bottom: 4px;
+        @include font-style('Avenir',13px,600,20px,$silver);
+    }
+    
+    &__comment{
+        width: 100%;
+        // min-width: 240px;
+        min-height:36px;
+           //d and t :40px
+        height:105px;   
+        margin: 0 12px 12px 0;  // d n t : 16px
+        border:1px solid $mercury;
+        border-radius: 4px;
+        padding: 0.75rem;
+        background-color: $alabaster;
+        &:active{
+            border:2px solid $brainflix-blue;
+          }
+          &::placeholder{
+            color:$brainflix-darkblack;
+          }
+          &:focus {
+            border: 1px solid $brainflix-black;  
+            outline: none;  
+          }
+          &.error {
+            border:1px solid $error;
+          }
+
+          .upload__button{
+            gap:60px;
+          }
+    }
+}
+
+.comment{
+    display:flex;
+    flex-direction: column;
+    // padding: 1rem;
+
+    &__body{
+        width:100%;
+    }
+    &__align{
+        display: flex;
+        flex-direction: row;
+        padding: 16px;
+    }
+
+    &__main{
+        display: flex;
+        flex-direction: column;
+        width:80%;
+    }
+
+    &__head{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height:3rem;
+      }
+
+      &__name{
+        padding:0;
+        @include font-style('Avenir',16px,600,20px,$brainflix-darkblack);
+      }
+
+      &__date{
+        justify-content: center;
+        align-items: center;
+        color:$mercury;
+       }
+
+      &__text{
+        @include font-style('Avenir',16px,400,20px,$brainflix-darkblack);
+        width:100%;
+        text-align: justify;
+      }
+      &__avatar{
+        width:20%;
+        padding-top: 1rem;
+      }
+}

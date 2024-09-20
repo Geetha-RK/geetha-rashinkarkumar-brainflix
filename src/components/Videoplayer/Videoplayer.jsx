@@ -47,5 +47,5 @@ export default function Videoplayer({ videoDetails }){
             <p className='description__comments'>{videoDetails.comments.length} Comments</p>
         </article>
         </>
-    );
+    )
 }
