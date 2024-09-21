@@ -10,11 +10,24 @@
     background-color: $white;
     padding: 16px;
 
+    @include tablet{
+        flex-direction: row;
+        padding: 16px 36px;
+        justify-content: space-between;
+    }
+
     &__logocontainer{
         width:100%;
         display: flex;
         justify-content: center;
         padding-bottom: 16px;
+
+        @include tablet{
+            justify-content: flex-start;
+            align-items: center;
+            width:200px;
+            padding-bottom: 0;
+        }
     }
 
     &__logo{
@@ -27,6 +40,12 @@
        flex-direction: row; 
        flex-wrap: wrap;
        justify-content: space-between;
+
+       @include tablet{
+        flex-wrap: nowrap;
+        padding-bottom: 0;
+        width:65%;  
+       }
     }
     
     &__search{
@@ -34,6 +53,11 @@
         display: flex;
         align-items: center;
         padding-bottom: 16px;
+
+        @include tablet{
+            padding-bottom: 0;
+
+        }
 
     }
     
@@ -45,6 +69,10 @@
         width: 20px; 
         height: 20px; 
         pointer-events: none;
+
+        @include tablet{
+            top:47%;
+        }
     }
 
     &__searchtext{
@@ -54,6 +82,7 @@
         outline: none;
         background-color: $alabaster;
         color: $brainflix-darkblack;
+        height:40px;
 
         &::placeholder{
             color: $brainflix-black;

@@ -6,6 +6,10 @@
     flex-direction: row;
     width:100%;
 
+    @include tablet{
+        max-width:150px;
+    }
+
     &__button{
         padding: 5px;
         background-color: $brainflix-blue;
@@ -19,6 +23,12 @@
         width:100%;
         @include font-style('Avenir',10px,700,20px,$white);
         gap:100px;
+
+        @include tablet{
+        max-width:150px;
+        gap:40px;
+        }
     }
+
 }
 
