@@ -52,7 +52,7 @@
        }
 
        @include desktop{
-        width:40%;
+        width:49%;
        }
     }
     
@@ -65,6 +65,9 @@
         @include tablet{
             padding-bottom: 0;
 
+        }
+        @include desktop{
+            width:319px;
         }
 
     }
@@ -91,6 +94,10 @@
         background-color: $alabaster;
         color: $brainflix-darkblack;
         height:40px;
+
+        @include desktop{
+            width:330px;
+        }
 
         &::placeholder{
             color: $brainflix-black;
