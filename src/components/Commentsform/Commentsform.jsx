@@ -24,7 +24,6 @@ export default function Commentsform({ videoDetails }){
             <div className="form__container1">
                 <Avatar prop="src\assets\images\Mohan-muruge.jpg"/>
             </div>
-            
             <div className='form__container2'>
                 <div className="form__container3">
                     <label className="form__commentLable" htmlFor="form__comment-id">JOIN THE CONVERSATION</label>
@@ -43,7 +42,7 @@ export default function Commentsform({ videoDetails }){
             <div className='comment__body'>
                 <div className="comment__align ">
                     <div className="comment__avatar">
-                    <Avatar prop="src\assets\images\Mohan-muruge.jpg"/>
+                    <Avatar />
                     </div> 
                     <div className="comment__main">
                         <div className="comment__head">
