@@ -19,10 +19,10 @@ export default function Videoplayer({ videoDetails }){
     return(
         <>
         <div className='video'>
-            <video className='video_img' controls poster={videoDetails.image}></video>
+            <video className='video__img' controls poster={videoDetails.image}></video>
         </div>
         <div className='video__title'>{videoDetails.title}</div>
-        <hr className="video__border"/>
+        <hr className="video__border video__border--modifier"/>
         <section className="video__containers">
             <div className="video__container1">
                 <div className="video__author">By {videoDetails.channel}</div>

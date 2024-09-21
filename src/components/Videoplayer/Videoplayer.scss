@@ -16,7 +16,7 @@
         padding: 0 128px;
     }
 
-    &_img{
+    &__img{
         width:100%;
         object-fit: contain;
         height:auto;
@@ -25,6 +25,17 @@
     &__title{
         @include font-style('Avenir',24px,700,32px,$brainflix-black);
         padding:16px;
+        padding-top: 24px;
+
+        @include tablet{
+            @include font-style('Avenir',33px,700,44px,$brainflix-black);
+            padding:36px;
+            padding-bottom: 24px;
+        }
+        @include desktop{
+            @include font-style('Avenir',33px,700,44px,$brainflix-black);
+            padding:36px 64px 24px 64px;
+        }
     }
 
     &__border{
@@ -32,30 +43,85 @@
         height:1px;
         margin-left: 16px;
         margin-right: 16px;
+
+        @include tablet{
+            margin-left: 36px;
+            margin-right: 36px;
+        }
+        @include desktop{
+            margin-left: 64px;
+            margin-right: 64px;
+        }
+    }
+
+    &__border--modifier{
+        @include tablet{
+            display: none;
+        }
+        @include desktop{
+            display: none;
+        }
     }
 
     &__containers{
         display:flex;
         flex-direction: row;
         padding:1rem;
+
+        @include tablet{
+            padding:0 36px;           
+            justify-content: space-between;
+        }
+
+        @include desktop{
+            padding-top:0;
+            padding-left: 64px;
+            padding-right: 64px;
+            justify-content: space-between;
+        }
     }
     &__container1{
         padding-right: 1rem;
         justify-content: space-between;
+
+        @include tablet{
+            display: flex;
+            width:260px;
+            justify-content: space-between;
+        }
+    }
+    &__likes-views{
+        @include tablet{
+            display: flex;
+            width:236px;
+            justify-content: flex-end;
+        }
     }
     &__container2{
         display: flex;
         padding-bottom: 1rem;
+
+        @include tablet{
+            width:108px;
+        }
     }
     &__container3{
         display: flex;
+        
+        @include tablet{
+            width:100px;
+            justify-content: flex-end;
+            padding-bottom: 1rem;
+        }
     }
     &__author{
         padding-bottom: 1rem;
         @include font-style('Avenir',16px,700,20px,$brainflix-black);
+
     }
     &__views-icon{
         padding-right: 0.5rem;
+        width:30px;
     }
     &__likes-icon{
         padding-right: 0.5rem;
@@ -73,8 +139,19 @@
     .description{
         padding: 1rem;
 
+        @include tablet{
+            padding: 24px 36px;
+        }
+        @include desktop{
+            padding: 36px 64px;
+        }
+
         &__copy{
             @include font-style('Avenir',14px,400,18px,$brainflix-black);
+
+            @include tablet{
+                @include font-style('Avenir',14px,400,22px,$brainflix-black);
+            }
         }
 
         &__comments{
