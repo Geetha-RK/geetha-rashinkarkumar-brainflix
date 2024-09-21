@@ -25,9 +25,16 @@
         gap:100px;
 
         @include tablet{
+            @include font-style('Avenir',12px,700,20px,$white);
         max-width:150px;
         gap:40px;
         }
+
+        @include desktop{
+            @include font-style('Avenir',12px,700,20px,$white);
+            max-width:150px;
+            gap:32px;
+            }
     }
 
 }

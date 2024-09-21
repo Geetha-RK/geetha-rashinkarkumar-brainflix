@@ -10,6 +10,20 @@
     align-items: center;
     justify-content: center;
 
+    @include tablet{
+        order:3;
+        width:40px;
+        height:40px;
+        border-radius: 50%;
+    }
+
+    @include desktop{
+        order:3;
+        width:40px;
+        height:40px;
+        border-radius: 50%;
+    }
+
     &__img{
         height:100%;
         width:100%;
@@ -19,11 +33,7 @@
         @include tablet{
             order:3;
         }
-       }
-
-       @include tablet{
-        order:3;
-    }
+       }     
 
 }
 

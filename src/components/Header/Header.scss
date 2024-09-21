@@ -16,6 +16,10 @@
         justify-content: space-between;
     }
 
+    @include desktop{
+        padding: 16px 64px;
+    }
+
     &__logocontainer{
         width:100%;
         display: flex;
@@ -45,6 +49,10 @@
         flex-wrap: nowrap;
         padding-bottom: 0;
         width:65%;  
+       }
+
+       @include desktop{
+        width:40%;
        }
     }
     
