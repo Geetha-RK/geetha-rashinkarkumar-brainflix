@@ -33,7 +33,6 @@ export default function Commentsform({ videoDetails }){
                 <div className="form__container4">
                     <Button prop="COMMENT" url="src\assets\icons\add_comment.svg"/>
                 </div>
-               
             </div>
             
         </section>  
