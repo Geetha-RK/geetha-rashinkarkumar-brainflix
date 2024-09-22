@@ -13,7 +13,10 @@
     
    }
    @include desktop{
-    padding: 36px 64px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+    padding-left: 36px;
+    width:1238px;
    }
 
    &__title{

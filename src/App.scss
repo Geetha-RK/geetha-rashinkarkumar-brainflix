@@ -7,3 +7,19 @@ body{
     font-family: 'Avenir';
     
 }
+
+.align{
+
+    @include desktop{
+        display: flex;
+        flex-direction: row;
+        padding-right: 64px;
+    }
+
+    &__box2{
+        @include desktop{
+            border-left: 1px solid $mercury;
+        }
+    }
+    
+}

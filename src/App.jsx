@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Videoplayer from './components/Videoplayer/Videoplayer';
 import { useState } from 'react';
 import Commentsform from './components/Commentsform/Commentsform';
+import Videothumbnail from './components/VideoThumbnail/VideoThumbnail';
 
 function App() {
   const [currentVideo,setCurrentVideo] = useState(videoDetails[0]);
@@ -18,9 +19,17 @@ function App() {
   return (
     <>
       <Header/>
-      <Videoplayer videoDetails={currentVideo} />
-      <Commentsform videoDetails={currentVideo}/>
-      <Nextvideolist videoDetails={remainingVideos} clickVideo={clickVideo}/>
+      <Videothumbnail videoDetails={currentVideo} />
+      <div className='align'>
+        <div className='align__box1'>
+          <Videoplayer videoDetails={currentVideo} />
+          <Commentsform videoDetails={currentVideo}/>
+        </div>
+        {/* <hr className="align__border"/> */}
+        <div className="align__box2">
+          <Nextvideolist videoDetails={remainingVideos} clickVideo={clickVideo}/>
+        </div>
+      </div>
     </>
   )
 }

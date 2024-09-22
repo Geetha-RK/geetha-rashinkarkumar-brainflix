@@ -12,8 +12,9 @@
     }
 
     @include desktop{
-      padding:0 64px;
-  }
+      padding-left: 64px;
+      padding-right:36px;
+      }
 
     &__container1{
         width:20%;
@@ -39,9 +40,18 @@
           justify-content: space-between;
           width:92%;
         }
+        @include desktop{
+          width:95%;
+        }
+       
     }
     &__container3{
       width:72%;
+    }
+    &__container4{
+      @include desktop{
+        width:20%;
+      }
     }
     &__commentLable{
         margin-bottom: 4px;
@@ -61,7 +71,7 @@
 
 
         @include tablet{
-          height:41px;
+          height:43px;
           min-height:40px;
         }
         &:active{
@@ -102,7 +112,7 @@
 
         @include desktop{
           padding-left: 64px;
-          padding-right: 64px;
+          padding-right: 36px;
         }
     }
 

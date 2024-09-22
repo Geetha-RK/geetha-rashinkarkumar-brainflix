@@ -1,0 +1,24 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.video-thumbnail{ 
+    background-color: $brainflix-darkblack;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include tablet{
+        padding: 0 36px;
+    }
+
+    @include desktop{
+        padding: 0 128px;
+    }
+
+    &__img{
+        width:100%;
+        object-fit: contain;
+        height:auto;
+    }
+}
