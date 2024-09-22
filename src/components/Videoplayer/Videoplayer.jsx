@@ -28,11 +28,11 @@ export default function Videoplayer({ videoDetails }){
                 </div>
                 <div className='video__likes-views'>
                     <div className="video__container2">
-                        <img src="src\assets\icons\views.svg" alt="views-icon" class="video__views-icon" />
+                        <img src="src\assets\icons\views.svg" alt="views-icon" className="video__views-icon" />
                         <p className="video__views">{videoDetails.views}</p>
                     </div> 
                     <div className="video__container3">
-                        <img src="src\assets\icons\likes.svg" alt="likes-icon" class="video__likes-icon" />
+                        <img src="src\assets\icons\likes.svg" alt="likes-icon" className="video__likes-icon" />
                         <p className="video__likes">{videoDetails.likes}</p>
                     </div>
                 </div>

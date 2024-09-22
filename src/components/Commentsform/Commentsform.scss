@@ -5,15 +5,15 @@
     display:flex;
     flex-direction: row;
     padding: 1rem;
-    min-height: 36px;
+    min-height: 2.25rem;
 
     @include tablet{
-        padding:0 36px 24px 36px;
+        padding:0 2.25rem 1.5rem 2.25rem;
     }
 
     @include desktop{
-      padding-left: 64px;
-      padding-right:36px;
+      padding-left: 4rem;
+      padding-right:2.25rem;
       }
 
     &__container1{
@@ -38,21 +38,22 @@
           flex-direction: row;
           align-items: center;
           justify-content: space-between;
-          width:92%;
-        }
-        @include desktop{
           width:95%;
-        }
-       
+        }       
     }
+
     &__container3{
-      width:72%;
-    }
-    &__container4{
-      @include desktop{
-        width:20%;
+      @include tablet{
+        width:72%;
       }
     }
+
+    &__container4{
+      @include tablet{
+        width:23%;
+      }
+    }
+
     &__commentLable{
         margin-bottom: 4px;
         @include font-style('Avenir',13px,600,20px,$silver);
@@ -60,36 +61,38 @@
     
     &__comment{
         width: 100%;
-        min-height:36px;
-           //d and t :40px
-        height:105px;   
-        margin: 0 12px 12px 0;  
+        min-height:2.25rem;
+        height:6.5625rem;   
+        margin: 0 0.75rem 0.75rem 0;  
         border:1px solid $mercury;
         border-radius: 4px;
         padding: 0.75rem;
         background-color: $alabaster;
 
-
         @include tablet{
-          height:43px;
-          min-height:40px;
+          height:2.6875rem;
+          min-height:2.5rem;
         }
+
         &:active{
             border:2px solid $brainflix-blue;
           }
-          &::placeholder{
+
+        &::placeholder{
             color:$brainflix-darkblack;
           }
-          &:focus {
+
+        &:focus {
             border: 1px solid $brainflix-black;  
             outline: none;  
           }
-          &.error {
+
+        &.error {
             border:1px solid $error;
           }
 
-          &__button{
-            gap:60px;
+        &__button{
+            gap:3.75rem;
           }
     }
 }
@@ -101,18 +104,19 @@
     &__body{
         width:100%;
     }
+    
     &__align{
         display: flex;
         flex-direction: row;
-        padding: 16px;
+        padding: 1rem;
 
         @include tablet{
-          padding:24px 36px;
+          padding:1.5rem 2.25rem;
         }
 
         @include desktop{
-          padding-left: 64px;
-          padding-right: 36px;
+          padding-left: 4rem;
+          padding-right: 2.25rem;
         }
     }
 
@@ -135,7 +139,7 @@
 
       &__name{
         padding:0;
-        @include font-style('Avenir',16px,600,20px,$brainflix-darkblack);
+        @include font-style('Avenir',1rem,600,1.25rem,$brainflix-darkblack);
       }
 
       &__date{
@@ -145,9 +149,9 @@
        }
 
       &__text{
-        @include font-style('Avenir',16px,400,20px,$brainflix-black);
+        @include font-style('Avenir',1rem,400,1.25rem,$brainflix-black);
         width:100%;
-        text-align: justify;
+        text-align: left;
 
         @include tablet{
           width:93%;

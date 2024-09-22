@@ -9,11 +9,11 @@
     justify-content: center;
 
     @include tablet{
-        padding: 0 36px;
+        padding: 0 2.25rem;
     }
 
     @include desktop{
-        padding: 0 128px;
+        padding: 0 8rem;
     }
 
     &__img{

@@ -5,15 +5,13 @@
 
 body{
     font-family: 'Avenir';
-    
 }
 
 .align{
-
     @include desktop{
         display: flex;
         flex-direction: row;
-        padding-right: 64px;
+        padding-right: 4rem;
     }
 
     &__box2{

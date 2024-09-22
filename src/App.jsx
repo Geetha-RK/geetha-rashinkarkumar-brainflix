@@ -25,7 +25,6 @@ function App() {
           <Videoplayer videoDetails={currentVideo} />
           <Commentsform videoDetails={currentVideo}/>
         </div>
-        {/* <hr className="align__border"/> */}
         <div className="align__box2">
           <Nextvideolist videoDetails={remainingVideos} clickVideo={clickVideo}/>
         </div>
