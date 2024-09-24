@@ -1,10 +1,12 @@
 import './Nextvideolist.scss';
 
-export default function Nextvideolist({ videoDetails, clickVideo }){
+export default function Nextvideolist({ videoDetails, currentVideo, clickVideo }){
+    console.log("VideoDetails:",videoDetails);
+    console.log("CurrentVideo:",currentVideo);
     return(
         <section className='nextvideo'>
             <p className="nextvideo__title">Next videos</p>
-                {videoDetails.map((video)=>(
+                {videoDetails.filter((video) => video.id !== currentVideo.id).map((video)=>(
                     <div className="nextvideo__cards" key={video.id} onClick={() => clickVideo(video)}>
                         <div className='nextvideo__img'>
                             <img className="nextvideo__thumbnail" src={video.image} alt="thumbnail-img"/>
