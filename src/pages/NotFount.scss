@@ -1,0 +1,19 @@
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/mixins' as *;
+
+.errormsg{
+    @include font-style('Avenir',13px,600,20px,$brainflix-darkblack);
+    padding-left:16px;
+
+    @include tablet{
+        @include font-style('Avenir',20px,600,20px,$brainflix-darkblack);
+        padding-left: 36px;
+        padding-top: 36px;
+    }
+
+    @include desktop{
+      @include font-style('Avenir',22px,600,20px,$brainflix-darkblack);
+      padding-left: 64px;
+      padding-top: 64px;
+    }
+  }

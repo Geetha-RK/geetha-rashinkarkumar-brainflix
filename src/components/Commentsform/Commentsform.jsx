@@ -1,6 +1,8 @@
 import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
 import './Commentsform.scss';
+import avatar from '../../assets/images/Mohan-muruge.jpg';
+import comm from '../../assets/icons/add_comment.svg';
 
 export default function Commentsform({ videoDetails }){
     console.log("Commentsform",videoDetails);
@@ -22,7 +24,7 @@ export default function Commentsform({ videoDetails }){
         <>
         <section className='form'>
             <div className="form__container1">
-                <Avatar prop="src\assets\images\Mohan-muruge.jpg"/>
+                <Avatar prop={avatar}/>
             </div>
             <div className='form__container2'>
                 <div className="form__container3">
@@ -30,7 +32,7 @@ export default function Commentsform({ videoDetails }){
                     <textarea className="form__comment" id="form__comment-id" required name="formComment" placeholder="Add a new comment"></textarea>
                 </div>
                 <div className="form__container4">
-                    <Button prop="COMMENT" url="src\assets\icons\add_comment.svg"/>
+                    <Button prop="COMMENT" url={comm}/>
                 </div>
             </div>
             

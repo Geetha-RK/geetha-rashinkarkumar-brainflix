@@ -4,11 +4,15 @@ import { useState, useEffect } from "react";
 import Commentsform from "../components/Commentsform/Commentsform";
 import Videothumbnail from "../components/VideoThumbnail/VideoThumbnail";
 import axios from "axios";
+import { useParams, useNavigate } from 'react-router-dom';
+
 
 export default function VideoDisplay() {
   const [videoDetails, setVideoDetails] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
 //   const [isLoading, setIsLoading] = useState(true);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getApi = async () => {
@@ -18,6 +22,10 @@ export default function VideoDisplay() {
         );
         if (response.data.length > 0) {
             setVideoDetails(response.data);
+            // if (!id) {
+            //   // navigate(`/video/${response.data[0].id}`);  // Navigate to the first video's ID
+            //   Navigate(`/`);//Navigate to home page
+            // }
             getCurrentApi(response.data[0].id);
             // setIsLoading(false);
         }
@@ -32,6 +40,12 @@ export default function VideoDisplay() {
     //   return  alert("Loading...");
     // }
 
+    useEffect(() => {
+      if (id) {
+        getCurrentApi(id); 
+      }
+    }, [id]);
+
   const getCurrentApi = async (id) => {
     try {
       const response = await axios.get(
@@ -39,13 +53,14 @@ export default function VideoDisplay() {
       );
       setCurrentVideo(response.data);
     } catch (error) {
-      console.error("Error in current video", error);
+      console.error("Error fetching the current video", error);
+
+      if (error.response && error.response.status === 404) {
+        navigate('/not-found');
+      }
     }
   };
 
-  function clickVideo(selectedVideo) {
-    getCurrentApi(selectedVideo.id);
-  }
 
   return (
     <>
@@ -61,7 +76,7 @@ export default function VideoDisplay() {
               <Nextvideolist
                 videoDetails={videoDetails}
                 currentVideo={currentVideo}
-                clickVideo={clickVideo}
+                // clickVideo={clickVideo}
               />
             </div>
           </div>
