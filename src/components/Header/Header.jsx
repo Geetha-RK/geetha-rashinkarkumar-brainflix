@@ -7,7 +7,7 @@ import searchIcon from "../../assets/icons/search.svg";
 import avatarImage from "../../assets/images/Mohan-muruge.jpg";
 import uploadIcon from "../../assets/icons/upload.svg";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (

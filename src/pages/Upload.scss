@@ -1,0 +1,125 @@
+@use '../styles/partials/variables' as *;
+@use '../styles/partials/mixins' as *;
+
+.uploads-border{
+    color:$mercury;
+    height:1px;
+    width:100%;
+
+    &--modifier{
+        visibility: hidden;
+        @include tablet{
+            visibility: visible;
+            margin-left: 36px;
+            margin-right: 36px;
+            width:100%;
+        }
+        @include desktop{
+            visibility: visible;
+            margin-left: 64px;
+            margin-right: 64px;
+            width:100%;
+        }
+    }
+}
+
+.uploads{
+    @include font-style('Avenir',24px,700,32px,$brainflix-black);
+    padding:1rem;
+    padding-top: 1.5rem;
+
+    @include tablet{
+        @include font-style('Avenir',33px,700,44px,$brainflix-black);
+        padding:2.25rem;
+        padding-bottom: 1.5rem;
+    }
+    @include desktop{
+        @include font-style('Avenir',33px,700,44px,$brainflix-black);
+        padding:2.25rem 2.25rem 1.5rem 4rem;
+    }
+
+    &__container1{
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        @include tablet{
+            padding: 36px;
+        }
+        @include desktop{
+            padding: 64px;
+        }
+    }
+
+    &__label{
+        margin-bottom: 4px;
+        @include font-style('Avenir',13px,600,20px,$silver);
+    }
+    &__thumbnail{
+        width:100%;
+        border-radius: 4px;
+    }
+    &__container2{
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        @include tablet{
+            padding: 36px;
+        }
+        @include desktop{
+            padding: 64px;
+        }
+    }
+    &__title{
+        height:40px;
+        min-height:2.25rem;
+        padding:12px ;
+        margin-bottom: 16px;
+        background-color: $alabaster;
+        @include font-style('Avenir',13px,400,20px,$brainflix-darkblack);
+        border:1px solid $mercury;
+        border-radius: 4px;
+        &:active{
+            border:2px solid $brainflix-blue;
+          }
+
+        &::placeholder{
+            color:$brainflix-darkblack;
+          }
+
+        &:focus {
+            border: 1px solid $brainflix-black;  
+            outline: none;  
+          }
+
+        &.error {
+            border:1px solid $error;
+          }
+
+    }
+
+    &__title--description{
+        width: 100%;
+        min-height:2.25rem;
+        height:6.5625rem;
+    }
+    &__container3{
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        padding-top: 0px;
+        align-items: center;
+
+        @include tablet{
+            flex-direction: row;
+            justify-content: flex-end;
+            gap:5rem;
+        }
+    }
+    &__cancel{
+        padding-top: 36px;
+        order: -1;
+        padding-bottom: 36px;
+        @include font-style('Avenir',13px,600,20px,$brainflix-blue);
+    }
+
+}

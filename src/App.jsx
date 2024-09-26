@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from "./components/Header/Header";
 import VideoDisplay from "./pages/VideoDisplay";
 import NotFound from "./pages/NotFound";
+import Upload from "./pages/Upload";
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       <Routes>
       <Route path='/' element={ <VideoDisplay />}/>
       <Route path="/video/:id" element={<VideoDisplay />} />
-      {/* <Route path="/update" element={<Update />} /> */}
+      <Route path="/upload" element={<Upload />} />
       <Route path='/not-found' element={<NotFound />} />
       </Routes>
       </BrowserRouter>
