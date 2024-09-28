@@ -32,7 +32,9 @@ export default function Header() {
           />
         </div>
         <Avatar prop={avatarImage} />
-        <Button prop="UPLOAD" url={uploadIcon} />
+        <Link to={'/upload'} className="upload" >
+          <Button prop="UPLOAD" url={uploadIcon} />
+        </Link>
       </div>
     </div>
   );

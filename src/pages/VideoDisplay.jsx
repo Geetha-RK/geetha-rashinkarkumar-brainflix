@@ -70,7 +70,7 @@ export default function VideoDisplay() {
           <div className="align">
             <div className="align__box1">
               <Videoplayer videoDetails={currentVideo} />
-              <Commentsform videoDetails={currentVideo} />
+              <Commentsform videoDetails={currentVideo} getCurrentApi={getCurrentApi}/>
             </div>
             <div className="align__box2">
               <Nextvideolist

@@ -1,89 +1,147 @@
 import "./Upload.scss";
-
 import thumbnail from "../assets/images/Upload-video-preview.jpg";
 import publish from "../assets/icons/publish.svg";
 import Button from "../components/Button/Button";
-
+import Swal from "sweetalert2";
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function Upload() {
-    const [title,setTitle] = useState([]);
-    const [description,setDescription] = useState([]);
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const formRef = useRef(null);
     const navigate = useNavigate();
+    let alertmsg = ""; 
+    const namePattern = /^[A-Za-z\s]+$/;
 
-    const handleTitleChange = (event) =>{
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        console.log("Here");
+        if (!isFormValid()) {
+            Swal.fire({
+                icon: "Error",
+                title: "Publish Failed",
+                text: alertmsg,
+            });
+        } else {
+            Swal.fire({
+                icon: "success",
+                title: "Success!",
+                text: "Video uploaded successfully!",
+            }).then(() => {
+                // Reset the form after successful submission
+                resetForm();
+                navigate("/"); // Navigate after the alert is closed
+            });
+        }
+    };
+
+    const resetForm = () => {
+        setTitle("");
+        setDescription("");
+        if (formRef.current) {
+            formRef.current.reset();
+        }
+    };
+
+    const handleTitleChange = (event) => {
         setTitle(event.target.value);
-    }
+    };
 
-    const handleDescriptionChange = (event) =>{
+    const handleDescriptionChange = (event) => {
         setDescription(event.target.value);
-    }
+    };
 
-    const handlePublishClick = (event) => {
-        event.preventDefault(); 
-        toast.success("Video Published");
-        alert("Video Published");
-        navigate(`/`);
-      };
+    const isFormValid = () => {
+        if (!title || !description) {
+            alertmsg = "Enter all the fields.\n";
+          } else {
+            if (title.length > 50) {
+              alertmsg += "Title should not exceed 50 characters.\n";
+            }
+            if (!namePattern.test(title)) {
+              alertmsg += "Title can contain letters and spaces only.\n";
+            }
+            if (description.length > 200) {
+              alertmsg += "Description should not exceed 200 characters.";
+            }
+          }
+          if (alertmsg) {
+            return false; // Form is invalid
+          }
+          return true; // Form is valid
+        };
+    
 
-    const handleCancelClick = (event) => {
-        event.preventDefault(); 
-        toast.info("Upload Canceled");
-        alert("Upload Canceled");
-        navigate(`/`);
-      };
+    const handleCancelClick = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085D6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, cancel it!",
+            cancelButtonText: "No, keep it",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                resetForm();
+                Swal.fire("Cancelled", "Your action has been cancelled.", "success");
+            }
+        });
+    };
 
-  
-  return (
-    <>
-      <hr className="upload-border" />
+    return (
+        <>
+            <hr className="upload-border" />
+            <h1 className="uploads">Upload Video</h1>
+            <hr className="uploads-border uploads-border--modifier" />
 
-      <h1 className="uploads">Upload Video</h1>
-      <hr className="uploads-border uploads-border--modifier" />
-
-      <div className="uploads__container1">
-        <label className="uploads__label" htmlFor="thumbnail">
-          VIDEO THUMBNAIL
-        </label>
-        <img
-          className="uploads__thumbnail"
-          name="thumbnail"
-          src={thumbnail}
-          alt="video-thumbnail"
-        />
-      </div>
-      <form >
-        <div className="uploads__container2">
-          <label className="uploads__label" htmlFor="title">
-            TITLE YOUR VIDEO
-          </label>
-          <input
-            className="uploads__title"
-            type="text"
-            name="title"
-            placeholder="Add a title to your video"
-            onChange={handleTitleChange}
-          />
-          <label className="uploads__label" htmlFor="description">
-            ADD A VIDEO DESCRIPTION
-          </label>
-          <textarea
-            name="description"
-            className="uploads__title uploads__title--description"
-            placeholder="Add a description to your video"
-            onChange={handleDescriptionChange}
-          ></textarea>
-        </div>
-        <hr className="uploads-border uploads-border--modifier" />
-        <div className="uploads__container3">
-          <Button prop="PUBLISH" url={publish} onClick={handlePublishClick}/>
-          <p className="uploads__cancel" onClick={handleCancelClick}>CANCEL</p>
-        </div>
-      </form>
-      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false}/>
-    </>
-  );
+            <div className="uploads__container1">
+                <label className="uploads__label" htmlFor="thumbnail">
+                    VIDEO THUMBNAIL
+                </label>
+                <img
+                    className="uploads__thumbnail"
+                    name="thumbnail"
+                    src={thumbnail}
+                    alt="video-thumbnail"
+                />
+            </div>
+            <form ref={formRef} >
+                <div className="uploads__container2">
+                    <label className="uploads__label" htmlFor="title">
+                        TITLE YOUR VIDEO
+                    </label>
+                    <input
+                        className="uploads__title"
+                        type="text"
+                        name="title"
+                        placeholder="Add a title to your video"
+                        value={title}
+                        onChange={handleTitleChange}
+                    />
+                    <label className="uploads__label" htmlFor="description">
+                        ADD A VIDEO DESCRIPTION
+                    </label>
+                    <textarea
+                        name="description"
+                        className="uploads__title uploads__title--description"
+                        placeholder="Add a description to your video"
+                        value={description}
+                        onChange={handleDescriptionChange}
+                    ></textarea>
+                </div>
+                <hr className="uploads-border uploads-border--modifier" />
+                <div className="uploads__container3">
+                    <div onClick={handleFormSubmit}>
+                        <Button prop="PUBLISH" url={publish} from="publish"/>
+                    </div>
+                    <div onClick={handleCancelClick}>
+                        <Button prop="Cancel" url={publish} from="cancel"/>
+                    </div>
+                </div>
+            </form>
+        </>
+    );
 }
