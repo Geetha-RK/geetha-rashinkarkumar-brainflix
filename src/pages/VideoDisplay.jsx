@@ -76,7 +76,6 @@ export default function VideoDisplay() {
               <Nextvideolist
                 videoDetails={videoDetails}
                 currentVideo={currentVideo}
-                // clickVideo={clickVideo}
               />
             </div>
           </div>
