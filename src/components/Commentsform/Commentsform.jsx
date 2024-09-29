@@ -5,7 +5,7 @@ import avatar from '../../assets/images/Mohan-muruge.jpg';
 import comm from '../../assets/icons/add_comment.svg';
 import { useState } from 'react';
 import axios from "axios";
-// import { v4 as uuidv4 } from 'uuid';
+
 
 export default function Commentsform({ videoDetails, getCurrentApi }){
     const [newcomment, setNewComment] = useState("");
@@ -47,6 +47,19 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
 
     }
 
+    const handleDeleteComment = async (commentId) => {
+        let id = videoDetails.id;
+
+        try {
+            await axios.delete(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}?api_key=41bfcc3e-1518-4576-9462-da7e64187139`);
+            await getCurrentApi(id); 
+        } catch (error) {
+            console.error("Error deleting the comment", error);
+        }
+    };
+
+    const sortedComments = [...videoDetails.comments].sort((a, b) => b.timestamp - a.timestamp);
+
     return(
         <>
         <form className='form' onSubmit={handleComment}>
@@ -56,7 +69,7 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
             <div className='form__container2'>
                 <div className="form__container3">
                     <label className="form__commentLable" htmlFor="form__comment-id">JOIN THE CONVERSATION</label>
-                    <textarea className="form__comment" id="form__comment-id" required name="formComment" placeholder="Add a new comment" onChange={comment}></textarea>
+                    <textarea className="form__comment" id="form__comment-id" required name="formComment" placeholder="Add a new comment" onChange={comment} value={newcomment}></textarea>
                 </div>
                 <div className="form__container4">
                     <Button prop="COMMENT" url={comm} from="comment"/>
@@ -67,7 +80,7 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
 
         <section className='comment'>
         <hr className="video__border"/>
-        {videoDetails.comments.map((video)=>(
+        {sortedComments.map((video, index) => (
             <div className='comment__body'>
                 <div className="comment__align ">
                     <div className="comment__avatar">
@@ -79,6 +92,9 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
                             <p className="comment__date">{formatDateToMMDDYYYY(video.timestamp)}</p>
                         </div>
                         <p className="comment__text">{video.comment}</p>
+                        <button onClick={() => handleDeleteComment(video.id)} className="comment__delete-button">
+                            Delete
+                        </button>
                     </div>
                 </div>
                 <hr className="video__border"/>

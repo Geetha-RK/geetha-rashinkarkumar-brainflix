@@ -15,7 +15,7 @@ export default function Nextvideolist({ videoDetails, currentVideo }){
                     <Link 
                     to={`/video/${video.id}`} 
                     key={video.id} 
-                    className="nextvideo__cards"
+                    className="nextvideo__cardslink"
                     >
                    
                     <div className="nextvideo__cards" >                           
