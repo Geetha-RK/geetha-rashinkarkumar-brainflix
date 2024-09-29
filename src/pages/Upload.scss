@@ -35,7 +35,17 @@
     }
     @include desktop{
         @include font-style('Avenir',33px,700,44px,$brainflix-black);
-        padding:2.25rem 4rem 2.25rem 4rem;
+        padding:2.25rem 4rem 1.5rem 4rem;
+    }
+
+    &__containers{
+        display:flex;
+        flex-direction: column;
+
+        @include desktop{
+            flex-direction: row;
+            padding: 36px 64px;
+        }
     }
 
     &__container1{
@@ -47,7 +57,8 @@
             padding-bottom: 0;
         }
         @include desktop{
-            padding: 36px 64px;
+            width:30%;
+           padding: 0;
         }
     }
 
@@ -64,7 +75,12 @@
         }
 
         @include desktop{
-            width:30%;
+            width:100%;
+        }
+    }
+    &__form{
+        @include desktop{
+            width:67%;
         }
     }
     &__container2{
@@ -77,8 +93,9 @@
             
         }
         @include desktop{
-            padding: 64px;
-            padding-top: 0;
+            padding: 0;
+           padding-left:36px;
+           width:100%;
         }
     }
     &__title{
@@ -129,11 +146,17 @@
             gap:3rem;
             
         }
+        @include desktop{
+            padding:36px 64px 36px 64px;
+        }
     }
     &__publish{
         width:100%;
         @include tablet{
             width:21%;
+        }
+        @include desktop{
+            width:15%;
         }
     }
     &__cancel{

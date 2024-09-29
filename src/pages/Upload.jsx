@@ -106,7 +106,7 @@ export default function Upload() {
             alt="video-thumbnail"
           />
         </div>
-        <form ref={formRef}>
+        <form className="uploads__form" ref={formRef}>
           <div className="uploads__container2">
             <label className="uploads__label" htmlFor="title">
               TITLE YOUR VIDEO
