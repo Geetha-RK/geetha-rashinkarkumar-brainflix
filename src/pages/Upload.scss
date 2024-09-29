@@ -12,13 +12,13 @@
             visibility: visible;
             margin-left: 36px;
             margin-right: 36px;
-            width:100%;
+            width:91%;
         }
         @include desktop{
             visibility: visible;
             margin-left: 64px;
             margin-right: 64px;
-            width:100%;
+            
         }
     }
 }
@@ -44,6 +44,7 @@
         padding: 16px;
         @include tablet{
             padding: 36px;
+            padding-bottom: 0;
         }
         @include desktop{
             padding: 64px;
@@ -57,13 +58,23 @@
     &__thumbnail{
         width:100%;
         border-radius: 4px;
+
+        @include tablet{
+            width:50%;
+        }
+
+        @include desktop{
+            width:30%;
+        }
     }
     &__container2{
         display: flex;
         flex-direction: column;
         padding: 16px;
         @include tablet{
-            padding: 36px;
+            padding: 16px 36px;
+           
+            
         }
         @include desktop{
             padding: 64px;
@@ -108,12 +119,18 @@
         padding: 16px;
         padding-top: 0px;
         align-items: center;
+        gap:1rem;
 
         @include tablet{
-            flex-direction: row;
-            justify-content: flex-end;
-            gap:5rem;
+            padding:36px;
+            padding-top: 24px;
+            flex-direction: row-reverse;
+            gap:3rem;
+            
         }
+    }
+    &__publish{
+        width:100%;
     }
     &__cancel{
         padding-top: 36px;

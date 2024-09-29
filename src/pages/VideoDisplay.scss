@@ -1,0 +1,10 @@
+@use '../styles/partials/mixins' as *;
+@use '../styles/partials/variables' as *;
+
+.align{
+    &__box1{
+        @include desktop{
+         width:820px;
+        }
+    }
+}

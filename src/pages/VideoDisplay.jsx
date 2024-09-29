@@ -5,7 +5,7 @@ import Commentsform from "../components/Commentsform/Commentsform";
 import Videothumbnail from "../components/VideoThumbnail/VideoThumbnail";
 import axios from "axios";
 import { useParams, useNavigate } from 'react-router-dom';
-
+import './VideoDisplay.scss';
 
 export default function VideoDisplay() {
   const [videoDetails, setVideoDetails] = useState([]);

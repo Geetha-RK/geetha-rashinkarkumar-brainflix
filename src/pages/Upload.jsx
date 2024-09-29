@@ -29,9 +29,8 @@ export default function Upload() {
                 title: "Success!",
                 text: "Video uploaded successfully!",
             }).then(() => {
-                // Reset the form after successful submission
                 resetForm();
-                navigate("/"); // Navigate after the alert is closed
+                navigate("/"); 
             });
         }
     };
@@ -67,9 +66,9 @@ export default function Upload() {
             }
           }
           if (alertmsg) {
-            return false; // Form is invalid
+            return false; 
           }
-          return true; // Form is valid
+          return true; 
         };
     
 
@@ -134,11 +133,11 @@ export default function Upload() {
                 </div>
                 <hr className="uploads-border uploads-border--modifier" />
                 <div className="uploads__container3">
-                    <div onClick={handleFormSubmit}>
-                        <Button prop="PUBLISH" url={publish} from="publish"/>
+                    <div className="uploads__publish" onClick={handleFormSubmit}>
+                        <Button prop="PUBLISH" url={publish} from="publish" isPublish={true}/>
                     </div>
                     <div onClick={handleCancelClick}>
-                        <Button prop="Cancel" url={publish} from="cancel"/>
+                        <Button prop="Cancel" url={publish} from="cancel" isCancel={true}/>
                     </div>
                 </div>
             </form>

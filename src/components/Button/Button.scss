@@ -38,5 +38,29 @@
             }
     }
 
+    &__button--cancel{
+        background-color: $white;
+        color:$brainflix-blue;
+        text-transform: uppercase;
+        @include font-style('Avenir',10px,700,20px,$brainflix-blue);
+        gap:0.1rem;
+
+        @include tablet{
+            @include font-style('Avenir',12px,700,20px,$brainflix-blue);
+           
+        }
+        @include desktop{
+            @include font-style('Avenir',12px,700,20px,$brainflix-blue);
+        }
+    }
+
+    &__button--publish{
+        
+
+        @include tablet{
+        gap:2rem;
+        }
+    }
+
 }
 

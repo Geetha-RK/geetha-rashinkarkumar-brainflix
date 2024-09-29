@@ -15,6 +15,7 @@
         @include desktop{
             @include font-style('Avenir',33px,700,44px,$brainflix-black);
             padding:2.25rem 2.25rem 1.5rem 4rem;
+            
         }
     }
 
@@ -32,6 +33,7 @@
         @include desktop{
             margin-left: 4rem;
             margin-right: 0;
+            
         }
     }
 
@@ -62,6 +64,7 @@
             padding-left: 4rem;
             padding-right: 2.25rem;
             justify-content: space-between;
+           
         }
     }
 
@@ -141,6 +144,7 @@
         @include desktop{
             padding: 2.25rem 4rem;
             padding-right: 2.25rem;
+            
         }
 
         &__copy{
