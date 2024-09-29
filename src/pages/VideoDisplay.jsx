@@ -10,7 +10,6 @@ import './VideoDisplay.scss';
 export default function VideoDisplay() {
   const [videoDetails, setVideoDetails] = useState([]);
   const [currentVideo, setCurrentVideo] = useState(null);
-//   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -22,12 +21,8 @@ export default function VideoDisplay() {
         );
         if (response.data.length > 0) {
             setVideoDetails(response.data);
-            // if (!id) {
-            //   // navigate(`/video/${response.data[0].id}`);  // Navigate to the first video's ID
-            //   Navigate(`/`);//Navigate to home page
-            // }
             getCurrentApi(response.data[0].id);
-            // setIsLoading(false);
+          
         }
       } catch (error) {
         console.error("Error", error);
@@ -35,10 +30,6 @@ export default function VideoDisplay() {
     };
     getApi();
   }, []);
-
-    // if (isLoading) {
-    //   return  alert("Loading...");
-    // }
 
     useEffect(() => {
       if (id) {
@@ -60,7 +51,6 @@ export default function VideoDisplay() {
       }
     }
   };
-
 
   return (
     <>

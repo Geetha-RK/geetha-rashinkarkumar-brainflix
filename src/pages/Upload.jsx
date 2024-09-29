@@ -16,7 +16,6 @@ export default function Upload() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("Here");
     if (!isFormValid()) {
       Swal.fire({
         icon: "Error",

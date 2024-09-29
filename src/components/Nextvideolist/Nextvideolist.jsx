@@ -1,8 +1,7 @@
 import './Nextvideolist.scss';
-// import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-// export default function Nextvideolist({ videoDetails, currentVideo, clickVideo }){
+
 export default function Nextvideolist({ videoDetails, currentVideo }){
 
     console.log("VideoDetails:",videoDetails);
@@ -16,8 +15,7 @@ export default function Nextvideolist({ videoDetails, currentVideo }){
                     to={`/video/${video.id}`} 
                     key={video.id} 
                     className="nextvideo__cardslink"
-                    >
-                   
+                    > 
                     <div className="nextvideo__cards" >                           
                         <div className='nextvideo__img'>
                             <img className="nextvideo__thumbnail" src={video.image} alt="thumbnail-img"/>

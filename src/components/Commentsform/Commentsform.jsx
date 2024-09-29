@@ -10,7 +10,6 @@ import axios from "axios";
 export default function Commentsform({ videoDetails, getCurrentApi }){
     const [newcomment, setNewComment] = useState("");
     
-
     function formatDateToMMDDYYYY(input) {       
         const date = (input instanceof Date) ? input : new Date(input);
     
@@ -28,6 +27,7 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
     const comment =(event) => {
         setNewComment(event.target.value);
     }
+
     const handleComment = async(event) => {
         event.preventDefault();
         let id = videoDetails.id;
@@ -101,7 +101,6 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
             </div>
             ))}
         </section> 
-        
         </>
     );
 }

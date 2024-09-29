@@ -185,6 +185,7 @@
         @include tablet{
           @include font-style('Avenir',12px,700,20px,$white);
         }
+        
         @include desktop{
           @include font-style('Avenir',12px,700,20px,$white);
         }
