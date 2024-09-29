@@ -1,28 +1,16 @@
 import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
+import { BASE_URL, API_KEY } from '../../utils/apiconfig';
 import './Commentsform.scss';
 import avatar from '../../assets/images/Mohan-muruge.jpg';
 import comm from '../../assets/icons/add_comment.svg';
 import { useState } from 'react';
 import axios from "axios";
+import formatDateToMMDDYYYY from '../../utils/utils';
 
 
 export default function Commentsform({ videoDetails, getCurrentApi }){
     const [newcomment, setNewComment] = useState("");
-    
-    function formatDateToMMDDYYYY(input) {       
-        const date = (input instanceof Date) ? input : new Date(input);
-    
-        if (isNaN(date.getTime())) {
-            throw new Error('Invalid date');
-        }
-    
-        const month = String(date.getMonth() + 1); 
-        const day = String(date.getDate());
-        const year = date.getFullYear();
-        
-        return `${month}/${day}/${year}`;
-    }
 
     const comment =(event) => {
         setNewComment(event.target.value);
@@ -38,7 +26,7 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
             "comment" : newcomment
         }
         try{
-        await axios.post( `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments?api_key=41bfcc3e-1518-4576-9462-da7e64187139`,postcomment)
+        await axios.post( `${BASE_URL}/videos/${id}/comments?api_key=${API_KEY}`,postcomment)
         await getCurrentApi(id); 
         setNewComment("");
         }catch(error){
@@ -51,7 +39,7 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
         let id = videoDetails.id;
 
         try {
-            await axios.delete(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}/comments/${commentId}?api_key=41bfcc3e-1518-4576-9462-da7e64187139`);
+            await axios.delete(`${BASE_URL}/videos/${id}/comments/${commentId}?api_key=${API_KEY}`);
             await getCurrentApi(id); 
         } catch (error) {
             console.error("Error deleting the comment", error);

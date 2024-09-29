@@ -1,22 +1,9 @@
 import './Videoplayer.scss';
 import views  from '../../assets/icons/views.svg';
 import likes from '../../assets/icons/likes.svg';
+import formatDateToMMDDYYYY from '../../utils/utils';
 
 export default function Videoplayer({ videoDetails }){
-    
-    function formatDateToMMDDYYYY(input) {       
-        const date = (input instanceof Date) ? input : new Date(input);
-    
-        if (isNaN(date.getTime())) {
-            throw new Error('Invalid date');
-        }
-    
-        const month = String(date.getMonth() + 1); 
-        const day = String(date.getDate());
-        const year = date.getFullYear();
-        
-        return `${month}/${day}/${year}`;
-    }
    
     return(
         <>

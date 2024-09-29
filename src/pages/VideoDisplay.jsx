@@ -1,5 +1,6 @@
 import Nextvideolist from "../components/Nextvideolist/Nextvideolist";
 import Videoplayer from "../components/Videoplayer/Videoplayer";
+import { BASE_URL, API_KEY } from '../utils/apiconfig';
 import { useState, useEffect } from "react";
 import Commentsform from "../components/Commentsform/Commentsform";
 import Videothumbnail from "../components/VideoThumbnail/VideoThumbnail";
@@ -17,7 +18,7 @@ export default function VideoDisplay() {
     const getApi = async () => {
       try {
         const response = await axios.get(
-          "https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=41bfcc3e-1518-4576-9462-da7e64187139"
+          `${BASE_URL}/videos?api_key=${API_KEY}`
         );
         if (response.data.length > 0) {
             setVideoDetails(response.data);
@@ -40,7 +41,7 @@ export default function VideoDisplay() {
   const getCurrentApi = async (id) => {
     try {
       const response = await axios.get(
-        `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${id}?api_key=41bfcc3e-1518-4576-9462-da7e64187139`
+        `${BASE_URL}/videos/${id}?api_key=${API_KEY}`
       );
       setCurrentVideo(response.data);
     } catch (error) {
