@@ -18,7 +18,8 @@ export default function VideoDisplay() {
     const getApi = async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/videos?api_key=${API_KEY}`
+          // `${BASE_URL}/videos?api_key=${API_KEY}`
+          `http://localhost:5051/videos/`
         );
         if (response.data.length > 0) {
             setVideoDetails(response.data);
@@ -41,7 +42,8 @@ export default function VideoDisplay() {
   const getCurrentApi = async (id) => {
     try {
       const response = await axios.get(
-        `${BASE_URL}/videos/${id}?api_key=${API_KEY}`
+        // `${BASE_URL}/videos/${id}?api_key=${API_KEY}`
+        `http://localhost:5051/videos/${id}`
       );
       setCurrentVideo(response.data);
     } catch (error) {

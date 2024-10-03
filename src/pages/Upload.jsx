@@ -1,4 +1,5 @@
 import "./Upload.scss";
+import axios from 'axios';
 import thumbnail from "../assets/images/Upload-video-preview.jpg";
 import publish from "../assets/icons/publish.svg";
 import Button from "../components/Button/Button";
@@ -14,7 +15,7 @@ export default function Upload() {
   let alertmsg = "";
   const namePattern = /^[A-Za-z\s]+$/;
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async(event) => {
     event.preventDefault();
     if (!isFormValid()) {
       Swal.fire({
@@ -22,15 +23,33 @@ export default function Upload() {
         title: "Publish Failed",
         text: alertmsg,
       });
-    } else {
-      Swal.fire({
-        icon: "success",
-        title: "Success!",
-        text: "Video uploaded successfully!",
-      }).then(() => {
-        resetForm();
-        navigate("/");
-      });
+    } else {                                
+      try{
+          const response = await axios.post(`http://localhost:5051/videos/`,{
+            title: event.target.title.value, 
+            description: event.target.description.value,
+          });
+          // console.log("title:",event.target.title.value);
+          // console.log("description:",event.target.description.value);
+          // if(response){
+            if (response && response.status >= 200 && response.status < 300) {
+              console.log("Response:", response); // Log the response for debugging purposes
+              Swal.fire({
+                icon: "success",
+                title: "Success!",
+                text: "Video uploaded successfully!",
+              }).then(() => {
+                resetForm();
+                navigate("/");
+              });
+          }
+      }catch(error){
+        Swal.fire({
+          icon: "Error",
+          title: "Video could not be uploaded",
+          text: alertmsg,
+        });
+      }
     }
   };
 
@@ -105,7 +124,7 @@ export default function Upload() {
             alt="video-thumbnail"
           />
         </div>
-        <form className="uploads__form" ref={formRef}>
+        <form className="uploads__form" onSubmit={handleFormSubmit} ref={formRef}>
           <div className="uploads__container2">
             <label className="uploads__label" htmlFor="title">
               TITLE YOUR VIDEO
@@ -129,11 +148,11 @@ export default function Upload() {
               onChange={handleDescriptionChange}
             ></textarea>
           </div>
-        </form>
-      </div>
+          
       <hr className="uploads-border uploads-border--modifier" />
       <div className="uploads__container3">
-        <div className="uploads__publish" onClick={handleFormSubmit}>
+       
+        <div className="uploads__publish" >
           <Button
             prop="PUBLISH"
             url={publish}
@@ -141,10 +160,15 @@ export default function Upload() {
             isPublish={true}
           />
         </div>
+        
         <div onClick={handleCancelClick}>
           <Button prop="Cancel" url={publish} from="cancel" isCancel={true} />
         </div>
+        
       </div>
+      </form>
+      </div>
+      
     </>
   );
 }
