@@ -18,7 +18,13 @@ export default function Nextvideolist({ videoDetails, currentVideo }){
                     > 
                     <div className="nextvideo__cards" >                           
                         <div className='nextvideo__img'>
-                            <img className="nextvideo__thumbnail" src={video.image} alt="thumbnail-img"/>
+                            {/* <img className="nextvideo__thumbnail" src={`http://localhost:5051${video.image}`} alt="thumbnail-img"/>
+                             */}
+                              <img 
+                                className="nextvideo__thumbnail" 
+                                src={video.image.startsWith('http') ? video.image : `http://localhost:5051${video.image}`} 
+                                alt="thumbnail-img"
+                            />
                         </div>
                         <div className="nextvideo__copy">
                             <div className="nextvideo__copy-title">{video.title}</div>

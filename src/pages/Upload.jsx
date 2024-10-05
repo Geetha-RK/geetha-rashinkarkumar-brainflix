@@ -44,6 +44,7 @@ export default function Upload() {
               });
           }
       }catch(error){
+        console.log("error",error);
         Swal.fire({
           icon: "Error",
           title: "Video could not be uploaded",
