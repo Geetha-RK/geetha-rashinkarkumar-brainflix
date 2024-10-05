@@ -26,7 +26,8 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
             "comment" : newcomment
         }
         try{
-        await axios.post( `${BASE_URL}/videos/${id}/comments?api_key=${API_KEY}`,postcomment)
+        // await axios.post( `${BASE_URL}/videos/${id}/comments?api_key=${API_KEY}`,postcomment)
+        await axios.post(`http://localhost:5051/videos/${id}/comments`,postcomment);
         await getCurrentApi(id); 
         setNewComment("");
         }catch(error){
@@ -39,7 +40,8 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
         let id = videoDetails.id;
 
         try {
-            await axios.delete(`${BASE_URL}/videos/${id}/comments/${commentId}?api_key=${API_KEY}`);
+            // await axios.delete(`${BASE_URL}/videos/${id}/comments/${commentId}?api_key=${API_KEY}`);
+            await axios.delete(`http://localhost:5051/videos/${id}/comments/${commentId}`);
             await getCurrentApi(id); 
         } catch (error) {
             console.error("Error deleting the comment", error);

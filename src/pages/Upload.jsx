@@ -29,9 +29,7 @@ export default function Upload() {
             title: event.target.title.value, 
             description: event.target.description.value,
           });
-          // console.log("title:",event.target.title.value);
-          // console.log("description:",event.target.description.value);
-          // if(response){
+          
             if (response && response.status >= 200 && response.status < 300) {
               console.log("Response:", response); // Log the response for debugging purposes
               Swal.fire({
