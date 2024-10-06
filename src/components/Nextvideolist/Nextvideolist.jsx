@@ -7,6 +7,9 @@ export default function Nextvideolist({ videoDetails, currentVideo }){
     console.log("VideoDetails:",videoDetails);
     console.log("CurrentVideo:",currentVideo);
 
+    const timeThreshold = 5 * 60 * 1000; // 5 minutes in milliseconds
+    const currentTime = Date.now();
+
     return(
         <section className='nextvideo'>
             <p className="nextvideo__title">Next videos</p>
@@ -18,11 +21,11 @@ export default function Nextvideolist({ videoDetails, currentVideo }){
                     > 
                     <div className="nextvideo__cards" >                           
                         <div className='nextvideo__img'>
-                            {/* <img className="nextvideo__thumbnail" src={`http://localhost:5051${video.image}`} alt="thumbnail-img"/>
-                             */}
                               <img 
                                 className="nextvideo__thumbnail" 
-                                src={video.image.startsWith('http') ? video.image : `http://localhost:5051${video.image}`} 
+                                src={(currentTime - video.timestamp < timeThreshold) 
+                                    ? `http://localhost:5051/images/default.jpg` 
+                                    : `http://localhost:5051/images/${video.id}.jpg`}
                                 alt="thumbnail-img"
                             />
                         </div>
