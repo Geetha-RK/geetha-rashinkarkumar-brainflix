@@ -32,6 +32,14 @@ export default function Upload() {
           
             if (response && response.status >= 200 && response.status < 300) {
               console.log("Response:", response); // Log the response for debugging purposes
+              // Capture the ID from the response
+            const newVideoId = response.data.id; 
+            
+            // Store the new video ID in local storage
+            const newVideos = JSON.parse(localStorage.getItem('newVideos')) || [];
+            newVideos.push(newVideoId);
+            localStorage.setItem('newVideos', JSON.stringify(newVideos));
+
               Swal.fire({
                 icon: "success",
                 title: "Success!",

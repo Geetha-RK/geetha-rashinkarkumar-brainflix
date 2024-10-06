@@ -20,7 +20,7 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
         event.preventDefault();
         let id = videoDetails.id;
     
-        console.log("Comment id",id);
+        // console.log("Comment id",id);
         const postcomment = {
             "name" : "Geetha",
             "comment" : newcomment

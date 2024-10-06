@@ -1,14 +1,17 @@
 import './Nextvideolist.scss';
 import { Link } from 'react-router-dom';
-
+import { useEffect, useState } from 'react';
 
 export default function Nextvideolist({ videoDetails, currentVideo }){
 
-    console.log("VideoDetails:",videoDetails);
-    console.log("CurrentVideo:",currentVideo);
 
-    const timeThreshold = 5 * 60 * 1000; // 5 minutes in milliseconds
-    const currentTime = Date.now();
+     const [newVideos, setNewVideos] = useState([]);
+
+     useEffect(() => {
+        // Retrieve new video IDs from local storage
+        const storedVideos = JSON.parse(localStorage.getItem('newVideos')) || [];
+        setNewVideos(storedVideos);
+    }, []);
 
     return(
         <section className='nextvideo'>
@@ -23,9 +26,14 @@ export default function Nextvideolist({ videoDetails, currentVideo }){
                         <div className='nextvideo__img'>
                               <img 
                                 className="nextvideo__thumbnail" 
-                                src={(currentTime - video.timestamp < timeThreshold) 
-                                    ? `http://localhost:5051/images/default.jpg` 
-                                    : `http://localhost:5051/images/${video.id}.jpg`}
+                                // src={(currentTime - video.timestamp < timeThreshold) 
+                                //     ? `http://localhost:5051/images/default.jpg` 
+                                //     : `http://localhost:5051/images/${video.id}.jpg`}
+                                // src={newVideos.includes(video.id) 
+                                //     ? '/images/default.jpg' 
+                                //     : `/images/${video.id}.jpg`}
+                                src={newVideos.includes(video.id) ? `http://localhost:5051/images/default.jpg` 
+                                                                  : `http://localhost:5051/images/${video.id}.jpg`} 
                                 alt="thumbnail-img"
                             />
                         </div>
