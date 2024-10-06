@@ -1,6 +1,5 @@
 import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
-import { BASE_URL, API_KEY } from '../../utils/apiconfig';
 import './Commentsform.scss';
 import avatar from '../../assets/images/Mohan-muruge.jpg';
 import comm from '../../assets/icons/add_comment.svg';
@@ -20,27 +19,23 @@ export default function Commentsform({ videoDetails, getCurrentApi }){
         event.preventDefault();
         let id = videoDetails.id;
     
-        // console.log("Comment id",id);
         const postcomment = {
             "name" : "Geetha",
             "comment" : newcomment
         }
         try{
-        // await axios.post( `${BASE_URL}/videos/${id}/comments?api_key=${API_KEY}`,postcomment)
         await axios.post(`http://localhost:5051/videos/${id}/comments`,postcomment);
         await getCurrentApi(id); 
         setNewComment("");
         }catch(error){
             console.error("Error posting the comment", error);
         }
-
     }
 
     const handleDeleteComment = async (commentId) => {
         let id = videoDetails.id;
 
         try {
-            // await axios.delete(`${BASE_URL}/videos/${id}/comments/${commentId}?api_key=${API_KEY}`);
             await axios.delete(`http://localhost:5051/videos/${id}/comments/${commentId}`);
             await getCurrentApi(id); 
         } catch (error) {

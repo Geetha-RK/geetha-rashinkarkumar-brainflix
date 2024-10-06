@@ -1,5 +1,5 @@
 import "./Upload.scss";
-import axios from 'axios';
+import axios from "axios";
 import thumbnail from "../assets/images/Upload-video-preview.jpg";
 import publish from "../assets/icons/publish.svg";
 import Button from "../components/Button/Button";
@@ -15,7 +15,7 @@ export default function Upload() {
   let alertmsg = "";
   const namePattern = /^[A-Za-z\s]+$/;
 
-  const handleFormSubmit = async(event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (!isFormValid()) {
       Swal.fire({
@@ -23,34 +23,33 @@ export default function Upload() {
         title: "Publish Failed",
         text: alertmsg,
       });
-    } else {                                
-      try{
-          const response = await axios.post(`http://localhost:5051/videos/`,{
-            title: event.target.title.value, 
-            description: event.target.description.value,
-          });
-          
-            if (response && response.status >= 200 && response.status < 300) {
-              console.log("Response:", response); // Log the response for debugging purposes
-              // Capture the ID from the response
-            const newVideoId = response.data.id; 
-            
-            // Store the new video ID in local storage
-            const newVideos = JSON.parse(localStorage.getItem('newVideos')) || [];
-            newVideos.push(newVideoId);
-            localStorage.setItem('newVideos', JSON.stringify(newVideos));
+    } else {
+      try {
+        const response = await axios.post(`http://localhost:5051/videos/`, {
+          title: event.target.title.value,
+          description: event.target.description.value,
+        });
 
-              Swal.fire({
-                icon: "success",
-                title: "Success!",
-                text: "Video uploaded successfully!",
-              }).then(() => {
-                resetForm();
-                navigate("/");
-              });
-          }
-      }catch(error){
-        console.log("error",error);
+        if (response && response.status >= 200 && response.status < 300) {
+          // Capture the ID from the response
+          const newVideoId = response.data.id;
+
+          // Store the new video ID in local storage
+          const newVideos = JSON.parse(localStorage.getItem("newVideos")) || [];
+          newVideos.push(newVideoId);
+          localStorage.setItem("newVideos", JSON.stringify(newVideos));
+
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Video uploaded successfully!",
+          }).then(() => {
+            resetForm();
+            navigate("/");
+          });
+        }
+      } catch (error) {
+        console.log("error", error);
         Swal.fire({
           icon: "Error",
           title: "Video could not be uploaded",
@@ -132,7 +131,11 @@ export default function Upload() {
             alt="video-thumbnail"
           />
         </div>
-        <form className="uploads__form" onSubmit={handleFormSubmit} ref={formRef}>
+        <form
+          className="uploads__form"
+          onSubmit={handleFormSubmit}
+          ref={formRef}
+        >
           <div className="uploads__container2">
             <label className="uploads__label" htmlFor="title">
               TITLE YOUR VIDEO
@@ -156,27 +159,29 @@ export default function Upload() {
               onChange={handleDescriptionChange}
             ></textarea>
           </div>
-          
-      <hr className="uploads-border uploads-border--modifier" />
-      <div className="uploads__container3">
-       
-        <div className="uploads__publish" >
-          <Button
-            prop="PUBLISH"
-            url={publish}
-            from="publish"
-            isPublish={true}
-          />
-        </div>
-        
-        <div onClick={handleCancelClick}>
-          <Button prop="Cancel" url={publish} from="cancel" isCancel={true} />
-        </div>
-        
+
+          <hr className="uploads-border uploads-border--modifier" />
+          <div className="uploads__container3">
+            <div className="uploads__publish">
+              <Button
+                prop="PUBLISH"
+                url={publish}
+                from="publish"
+                isPublish={true}
+              />
+            </div>
+
+            <div onClick={handleCancelClick}>
+              <Button
+                prop="Cancel"
+                url={publish}
+                from="cancel"
+                isCancel={true}
+              />
+            </div>
+          </div>
+        </form>
       </div>
-      </form>
-      </div>
-      
     </>
   );
 }
