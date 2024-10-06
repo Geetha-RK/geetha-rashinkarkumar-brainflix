@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 
 export default function Nextvideolist({ videoDetails, currentVideo }){
 
-
      const [newVideos, setNewVideos] = useState([]);
 
      useEffect(() => {
@@ -26,12 +25,6 @@ export default function Nextvideolist({ videoDetails, currentVideo }){
                         <div className='nextvideo__img'>
                               <img 
                                 className="nextvideo__thumbnail" 
-                                // src={(currentTime - video.timestamp < timeThreshold) 
-                                //     ? `http://localhost:5051/images/default.jpg` 
-                                //     : `http://localhost:5051/images/${video.id}.jpg`}
-                                // src={newVideos.includes(video.id) 
-                                //     ? '/images/default.jpg' 
-                                //     : `/images/${video.id}.jpg`}
                                 src={newVideos.includes(video.id) ? `http://localhost:5051/images/default.jpg` 
                                                                   : `http://localhost:5051/images/${video.id}.jpg`} 
                                 alt="thumbnail-img"

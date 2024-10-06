@@ -110,6 +110,7 @@ export default function Upload() {
       if (result.isConfirmed) {
         resetForm();
         Swal.fire("Cancelled", "Your action has been cancelled.", "success");
+        navigate("/");
       }
     });
   };

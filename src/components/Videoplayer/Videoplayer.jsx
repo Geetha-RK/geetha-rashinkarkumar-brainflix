@@ -6,7 +6,7 @@ import formatDateToMMDDYYYY from '../../utils/utils';
 export default function Videoplayer({ videoDetails }){
    
     return(
-        <>
+        
         <div className='video'>
             <div className='video__title'>{videoDetails.title}</div>
             <hr className="video__border video__border--modifier"/>
@@ -34,6 +34,6 @@ export default function Videoplayer({ videoDetails }){
                 <p className='description__comments'>{videoDetails.comments.length} Comments</p>
             </article>
         </div>
-        </>
+        
     )
 }
